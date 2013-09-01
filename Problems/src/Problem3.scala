@@ -1,7 +1,10 @@
 import collection.mutable.ArrayBuffer
 
 /**
- * author: balaji-xubuntu 
+ * author: balaji-xubuntu
+ *
+ * Problem:
+ * The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of the number 600851475143 ?
  */
 
 // TO DO: use one of the advanced algorithms
@@ -11,6 +14,12 @@ object Problem3 {
 	def main(args : Array[String]){
 		simpleImplementation()
 	}
+
+	/*
+	this is seive of erasthothenes - check it out later -
+	http://mkaz.com/solog/scala/10-scala-one-liners-to-impress-your-friends.html
+	(n: Int) => (2 to n) |> (r => r.foldLeft(r.toSet)((ps, x) => if (ps(x)) ps -- (x * x to n by x) else ps))
+	 */
 
 	def simpleImplementation() {
 		var num = number
