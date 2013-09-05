@@ -15,7 +15,7 @@ object Problem7 {
 		primes = primes ++ ArrayBuffer(2,3,5,7,11)
 		var i = primes.last + 2
 		while(primes.size != 10001){
-			val multipleOfPrime = primes.takeWhile( _ <   Math.ceil(Math.sqrt(i)).toInt).foldLeft(false)((divisible,prime) => {
+			val multipleOfPrime = primes.filter( _ <= Math.sqrt(i).toInt).foldLeft(false)((divisible,prime) => {
 				divisible || (i % prime == 0)
 			})
 			if (!multipleOfPrime) primes += i
