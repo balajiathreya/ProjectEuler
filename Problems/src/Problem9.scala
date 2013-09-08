@@ -17,12 +17,15 @@ import math.BigDecimal.double2bigDecimal
 object Problem9 {
 
 	def main(args : Array[String]){
-		val squares = 0.to(1000).map(i => {
-			val sqrt = Math.sqrt(i)
-			if (sqrt)
-		})
-		for (i <- 0.to(1000); j <- (i+1).to(1000)){
-			if ()
-		}
+    for(i <- 1.to(500); j <- (i+1).to(499)){
+      val k = 1000 - j - i
+      if (k > j && i*i + j*j == k*k){
+        val list = List(i,j,k)
+        println("list : " + list.mkString(","))
+        println("product : " + list.reduce(_ * _))
+        println("sum : " + list.reduce(_ + _))
+        System.exit(0)
+      }
+    }
 	}
 }
