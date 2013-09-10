@@ -3,8 +3,8 @@
   <component name="FacetManager">
     <facet type="scala" name="Scala">
       <configuration>
-        <option name="compilerLibraryLevel" value="Project" />
-        <option name="compilerLibraryName" value="scala-compiler (1)" />
+        <option name="compilerLibraryLevel" value="Global" />
+        <option name="compilerLibraryName" value="lib" />
       </configuration>
     </facet>
   </component>
@@ -15,7 +15,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="scala-library (1)" level="project" />
+    <orderEntry type="library" exported="" name="lib" level="application" />
   </component>
 </module>
 
