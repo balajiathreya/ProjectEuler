@@ -9,8 +9,7 @@ import collection.mutable.ArrayBuffer
 object Sumof3NosInArray {
 
 	def main(args : Array[String]){
-		val buffer = new ArrayBuffer[Int]()
-		buffer++=List(2,3,0,-3,2,1,1,6,-2,-8,-3,4)
+		val buffer = ArrayBuffer(2,3,0,-3,2,1,1,6,-2,-8,-3,4)
 		simpleSol(buffer.sortWith( _ < _))
 		println("======")
 		anotherSol(buffer.sortWith( _ < _))
@@ -32,7 +31,7 @@ object Sumof3NosInArray {
 		var end = buffer.size - 1
 		while (start < end){
 			val sum = 0 - buffer(start) - buffer(end)
-			if (buffer.contains(sum)){
+			if (buffer.slice(start + 1, end - 1).contains(sum)){
 				println(List(buffer(start),buffer(end),sum).mkString(","))
 				start +=1
 				end -= 1

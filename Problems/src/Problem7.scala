@@ -11,8 +11,7 @@ import collection.mutable.ArrayBuffer
  */
 object Problem7 {
 	def main(args : Array[String]) {
-		var primes = new ArrayBuffer[Int]()
-		primes = primes ++ ArrayBuffer(2,3,5,7,11)
+		var primes = ArrayBuffer(2,3,5,7,11)
 		var i = primes.last + 2
 		while(primes.size != 10001){
 			val multipleOfPrime = primes.filter( _ <= Math.sqrt(i).toInt).foldLeft(false)((divisible,prime) => {
