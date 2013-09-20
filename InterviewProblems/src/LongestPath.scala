@@ -10,9 +10,13 @@ import collection.mutable.ArrayBuffer
 object LongestPath {
 	def main(args : Array[String]){
 		val root = createTree
-		println(calculateLongestPath(root))
+		//println(calculateLongestPath(root))
 	}
 
+   class Node (var nodeName : String, var left : Node, var right : Node, var leftLength: Int, var rightLength : Int){
+    override def toString : String = nodeName
+  }
+       /*
 	def calculateLongestPath(node : Node) : (ArrayBuffer[Node],Int) = {
 		if (node.left == null && node.right == null) new Tuple2(ArrayBuffer(node),0)
 		val leftTuple = if (node.left == null && node.right != null) calculateLongestPath(node.right) else null
@@ -41,6 +45,7 @@ object LongestPath {
 		//		}
 
 	}
+  */
 
 	def createTree : Node = {
 		val root = new Node("root",null,null,10,20)
@@ -61,11 +66,5 @@ object LongestPath {
 
 		root
 	}
-
-}
-
-class Node (var nodeName : String, var left : Node, var right : Node, var leftLength: Int, var rightLength : Int){
-
-	override def toString : String = nodeName
 
 }
