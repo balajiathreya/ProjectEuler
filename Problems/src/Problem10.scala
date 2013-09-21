@@ -31,9 +31,9 @@ object Problem10 {
     println("sum "+sum)
   }
 
-  class PrimeActor extends Actor{
-
-  }
+//  class PrimeActor extends Actor{
+//
+//  }
 
 }
 
