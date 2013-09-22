@@ -1,3 +1,5 @@
+package problems.scala
+
 /**
  * Created with IntelliJ IDEA.
  * User: bathreya

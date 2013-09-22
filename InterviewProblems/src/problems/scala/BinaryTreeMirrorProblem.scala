@@ -1,3 +1,7 @@
+package problems.scala
+
+import utils.scala.Node
+
 /**
  * Created with IntelliJ IDEA.
  * User: Balaji Athreya
@@ -8,15 +12,10 @@
  */
 object BinaryTreeMirrorProblem {
 
-  class Node(v : Int){
-    var left : Node = null
-    var right : Node = null
-    var value = v
-  }
-
   def main(args : Array[String]){
     val root = buildTree
     val mirroredRoot = mirrorBT(root)
+    println(mirroredRoot)
   }
 
   def mirrorBT(root : Node) : Node = {

@@ -1,3 +1,7 @@
+package problems.scala
+
+import utils.scala.Node
+
 /**
  * Created with IntelliJ IDEA.
  * User: Balaji Athreya
@@ -6,12 +10,6 @@
  * To change this template use File | Settings | File Templates.
  */
 object GraphTraversals {
-
-  class Node(v : Int){
-    var left : Node = null
-    var right : Node = null
-    var value = v
-  }
 
   def buildTree : Node = {
     val root = new Node(1)

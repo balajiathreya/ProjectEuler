@@ -1,3 +1,5 @@
+package problems.scala
+
 import collection.mutable.ArrayBuffer
 
 /**

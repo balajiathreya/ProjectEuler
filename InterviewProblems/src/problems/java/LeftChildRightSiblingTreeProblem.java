@@ -1,3 +1,7 @@
+package problems.java;
+
+import utils.java.Node;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Balaji Athreya
@@ -7,20 +11,6 @@
  */
 public class LeftChildRightSiblingTreeProblem {
 
-    static class Node{
-        private int value;
-        private Node left = null;
-        private Node right = null;
-
-        Node(int v){
-            value = v;
-        }
-
-        public String toString(){
-            return ""+value;
-        }
-    }
-
     public static void main(String[] args){
         Node root = buildTree();
         Node re = convert(root);
@@ -28,14 +18,14 @@ public class LeftChildRightSiblingTreeProblem {
     }
 
     public static Node convert(Node node){
-        if(node == null || (node.left == null && node.right == null)) return node;
-        convert(node.left);
-        convert(node.right);
-        if(node.left != null)
-            node.left.right = node.right;
+        if(node == null || (node.getLeft() == null && node.getRight() == null)) return node;
+        convert(node.getLeft());
+        convert(node.getRight());
+        if(node.getLeft() != null)
+            node.getLeft().setRight(node.getRight());
         else
-            node.left = node.right;
-        node.right = null;
+            node.setLeft(node.getRight());
+        node.setRight(null);
         return node;
     }
 
@@ -43,18 +33,18 @@ public class LeftChildRightSiblingTreeProblem {
         Node root = new Node(1);
         Node left = new Node(2);
         Node right = new Node(3);
-        root.left = left;
-        root.right = right;
+        root.setLeft(left);
+        root.setRight(right);
 
         Node left1 = new Node(4);
         Node left2 = new Node(5);
-        left.left = left1;
-        left.right = left2;
+        left.setLeft(left1);
+        left.setRight(left2);
 
         Node right1 = new Node(6);
         Node right2 = new Node(7);
-        right.left = right1;
-        right.right = right2;
+        right.setLeft(right1);
+        right.setRight(right2);
 
         return root;
 
