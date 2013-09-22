@@ -12,7 +12,7 @@ import utils.scala.Node1
 object BinaryTreeInversionProblem {
 
  def main(args : Array[String]){
-   val (root,newRoot) = buildTree
+   val (root,newRoot) = Node1.buildTree
    var node  = invertTree(root,newRoot)
    println(node)
 
@@ -34,29 +34,4 @@ object BinaryTreeInversionProblem {
     node
   }
 
-  def buildTree : (Node1,Node1) = {
-    val root = new Node1(1)
-    val left = new Node1(2)
-    val right = new Node1(3)
-    root.left = left
-    root.right = right
-    left.parent = root
-    right.parent = root
-
-    val left1 = new Node1(4)
-    val left2 = new Node1(5)
-    left.left = left1
-    left.right = left2
-    left1.parent = left
-    left2.parent = left
-
-    val right1 = new Node1(6)
-    val right2 = new Node1(7)
-    right.left = right1
-    right.right = right2
-    right1.parent = right
-    right2.parent = right
-
-    (root, right1)
-  }
 }

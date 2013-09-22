@@ -36,5 +36,26 @@ public class Node {
         this.right = right;
     }
 
+    public static Node buildTree(){
+        Node root = new Node(1);
+        Node left = new Node(2);
+        Node right = new Node(3);
+        root.setLeft(left);
+        root.setRight(right);
+
+        Node left1 = new Node(4);
+        Node left2 = new Node(5);
+        left.setLeft(left1);
+        left.setRight(left2);
+
+        Node right1 = new Node(6);
+        Node right2 = new Node(7);
+        right.setLeft(right1);
+        right.setRight(right2);
+
+        return root;
+
+    }
+
 
 }
