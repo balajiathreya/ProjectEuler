@@ -53,6 +53,9 @@ public class Node {
         right.setLeft(right1);
         right.setRight(right2);
 
+        Node rigth22 = new Node(8);
+        right1.setLeft(rigth22);
+
         return root;
 
     }
