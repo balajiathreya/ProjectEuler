@@ -14,33 +14,41 @@ import java.util.List;
  *
  */
 public class PrintingSubsets {
-    public static void comb1(ArrayList list) { comb1("", list); }
-
-    private static void comb1(String prefix, List list) {
-        if (list.size() > 0) {
-            System.out.println(prefix + "," + list.get(0));
-            List subList = list.subList(1,list.size() - 1);
-            comb1(prefix + list.get(0), subList);
-            comb1(prefix,               subList);
-        }
-    }
-
-    public static void comb2(List list) { comb2("", list); }
-    private static void comb2(String prefix, List list) {
-        System.out.println(prefix);
-        for (int i = 0; i < list.size(); i++)
-            comb2(prefix + list.get(i), list.subList(i + 1,list.size() - 1));
-    }
-
-
     public static void main(String[] args) {
         ArrayList list = buildList();
+       anotherSol(list);
+        //oneSol(list);
 
-        comb1(list);
-        System.out.println();
+    }
 
-        comb2(list);
-        System.out.println();
+    public static void anotherSol(ArrayList list){
+        int i = 1;
+        int limit = (int)Math.pow(2,list.size());
+        while (i <= limit){
+            for(int j = 0; j < list.size(); j++){
+                //System.out.println("j is : "+j+" (1 << j) " + (1 << j));
+                int num = (int) Math.pow(2,j);
+                if((i & num) > 0)
+                System.out.print(list.get(j)+" ");
+            }
+            i++;
+            System.out.println();
+        }
+        System.out.println("i is "+i);
+    }
+
+    public static void oneSol(ArrayList list){
+        System.out.println(list.size());
+        int allMasks = (1 << list.size());
+        System.out.println(Integer.toBinaryString(allMasks));
+
+        for (int i = 1; i < allMasks; i++){
+            for (int j = 0; j < list.size(); j++){
+                if ((i & (1 << j)) > 0) //The j-th element is used
+                    System.out.print(list.get(j) + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static ArrayList buildList(){
