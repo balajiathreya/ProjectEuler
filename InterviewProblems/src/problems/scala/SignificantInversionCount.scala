@@ -26,39 +26,32 @@ object SignificantInversionCount {
       val rightTuple : Tuple2[Array[Int],Int] = sortAndCount(arr2)
       val mergedArray = merge(leftTuple._1,rightTuple._1)
       val newArray = rightTuple._1.map(_*2)
-      val mergeAndCountedTuple = mergeAndCount(leftTuple._1,newArray)
-      val count = leftTuple._2 + rightTuple._2 + mergeAndCountedTuple._2
+      val mergedCount = mergeAndCount(leftTuple._1,newArray)
+      val count = leftTuple._2 + rightTuple._2 + mergedCount
       Tuple2(mergedArray, count)
     }
     else
       Tuple2(arr,0)
   }
 
-  def mergeAndCount(arr1: Array[Int], arr2: Array[Int]) : Tuple2[Array[Int],Int] = {
+  def mergeAndCount(arr1: Array[Int], arr2: Array[Int]) : Int = {
     var count = 0
     var i = 0
     var j = 0
-    val mergedList : ListBuffer[Int] = ListBuffer()
     while(i < arr1.size && j < arr2.size){
       val h1 = arr1(i)
       val h2 = arr2(j)
       if (h1 <= h2){
-        mergedList.append(h1)
         i = i + 1
         j = 0
       }
       else{
-        mergedList.append(h2)
         j = j + 1
         count = count + 1
         println(h1+", "+h2/2)
       }
     }
-    if (arr1.size != i && arr2.size == j)
-      mergedList.appendAll(arr1.slice(i,arr1.size))
-    else if (arr1.size == i && arr2.size != j)
-      mergedList.appendAll(arr2.slice(j,arr2.size))
-    Tuple2(mergedList.toArray,count)
+    count
   }
 
 
